@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		0045F61F1D2433150070ECCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F61E1D2433150070ECCC /* main.m */; };
 		0045F6221D2433150070ECCC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F6211D2433150070ECCC /* AppDelegate.m */; };
-		0045F6251D2433150070ECCC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F6241D2433150070ECCC /* ViewController.m */; };
 		0045F6281D2433150070ECCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045F6261D2433150070ECCC /* Main.storyboard */; };
 		0045F62A1D2433150070ECCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0045F6291D2433150070ECCC /* Assets.xcassets */; };
 		0045F62D1D2433150070ECCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045F62B1D2433150070ECCC /* LaunchScreen.storyboard */; };
+		0045F6361D24339E0070ECCC /* ProjectsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F6351D24339E0070ECCC /* ProjectsListVC.m */; };
+		0045F6391D2437A30070ECCC /* BreakPointsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F6381D2437A30070ECCC /* BreakPointsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +21,14 @@
 		0045F61E1D2433150070ECCC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0045F6201D2433150070ECCC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0045F6211D2433150070ECCC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0045F6231D2433150070ECCC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0045F6241D2433150070ECCC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0045F6271D2433150070ECCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0045F6291D2433150070ECCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0045F62C1D2433150070ECCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0045F62E1D2433150070ECCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0045F6341D24339E0070ECCC /* ProjectsListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsListVC.h; sourceTree = "<group>"; };
+		0045F6351D24339E0070ECCC /* ProjectsListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsListVC.m; sourceTree = "<group>"; };
+		0045F6371D2437A30070ECCC /* BreakPointsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BreakPointsVC.h; sourceTree = "<group>"; };
+		0045F6381D2437A30070ECCC /* BreakPointsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BreakPointsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +63,15 @@
 			children = (
 				0045F6201D2433150070ECCC /* AppDelegate.h */,
 				0045F6211D2433150070ECCC /* AppDelegate.m */,
-				0045F6231D2433150070ECCC /* ViewController.h */,
-				0045F6241D2433150070ECCC /* ViewController.m */,
 				0045F6261D2433150070ECCC /* Main.storyboard */,
 				0045F6291D2433150070ECCC /* Assets.xcassets */,
 				0045F62B1D2433150070ECCC /* LaunchScreen.storyboard */,
 				0045F62E1D2433150070ECCC /* Info.plist */,
 				0045F61D1D2433150070ECCC /* Supporting Files */,
+				0045F6341D24339E0070ECCC /* ProjectsListVC.h */,
+				0045F6351D24339E0070ECCC /* ProjectsListVC.m */,
+				0045F6371D2437A30070ECCC /* BreakPointsVC.h */,
+				0045F6381D2437A30070ECCC /* BreakPointsVC.m */,
 			);
 			path = iOSDemoProjects;
 			sourceTree = "<group>";
@@ -149,8 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0045F6251D2433150070ECCC /* ViewController.m in Sources */,
 				0045F6221D2433150070ECCC /* AppDelegate.m in Sources */,
+				0045F6391D2437A30070ECCC /* BreakPointsVC.m in Sources */,
+				0045F6361D24339E0070ECCC /* ProjectsListVC.m in Sources */,
 				0045F61F1D2433150070ECCC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,25 +1,219 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="XHM-vP-K42">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Sample Projects-->
+        <scene sceneID="3Y0-Ob-PTe">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <tableViewController id="u7w-v8-dwe" customClass="ProjectsListVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="hSA-ol-FYw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="u1a-zq-Vco">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rLc-j7-YkQ">
+                                        <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rLc-j7-YkQ" id="HvN-56-Qtn">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Break Point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IGf-K6-i19">
+                                                    <rect key="frame" x="20" y="0.0" width="580" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="IGf-K6-i19" secondAttribute="bottom" id="Phn-og-zvf"/>
+                                                <constraint firstItem="IGf-K6-i19" firstAttribute="leading" secondItem="HvN-56-Qtn" secondAttribute="leading" constant="20" id="aMC-KC-g8p"/>
+                                                <constraint firstItem="IGf-K6-i19" firstAttribute="top" secondItem="HvN-56-Qtn" secondAttribute="top" id="bnj-Vq-4pd"/>
+                                                <constraint firstAttribute="trailing" secondItem="IGf-K6-i19" secondAttribute="trailing" id="suN-s0-T2S"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UIg-fw-fVz" kind="show" id="1zF-rN-v4h"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="u7w-v8-dwe" id="sTA-h1-rRt"/>
+                            <outlet property="delegate" destination="u7w-v8-dwe" id="0mZ-x8-YXF"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Sample Projects" id="R0k-aW-4De"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0VA-hv-rXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="135"/>
+        </scene>
+        <!--Break PointsVC-->
+        <scene sceneID="zER-ft-2sZ">
+            <objects>
+                <viewController id="UIg-fw-fVz" customClass="BreakPointsVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oTb-Mh-nkm"/>
+                        <viewControllerLayoutGuide type="bottom" id="z0G-sa-53I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ibc-gj-Ddd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDS-Eh-VnY">
+                                <rect key="frame" x="150" y="337" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="GjQ-lT-8zz"/>
+                                    <constraint firstAttribute="height" constant="30" id="edm-Sl-MDg"/>
+                                </constraints>
+                                <state key="normal" title="Symbolic Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="symbolicBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="DHz-0Y-DqN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M89-Pq-SeJ">
+                                <rect key="frame" x="150" y="375" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ECf-fl-e1Q"/>
+                                    <constraint firstAttribute="width" constant="300" id="huA-GZ-izr"/>
+                                </constraints>
+                                <state key="normal" title="Exception Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="exceptionBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="De7-qt-IVy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqt-8J-jpy">
+                                <rect key="frame" x="150" y="234" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ICT-nU-WOw"/>
+                                    <constraint firstAttribute="height" constant="30" id="vqD-wK-JWw"/>
+                                </constraints>
+                                <state key="normal" title="Sound Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="soundBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="hWg-Gb-Tav"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2r-ga-Cr3">
+                                <rect key="frame" x="150" y="120" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="bkG-l5-H67"/>
+                                    <constraint firstAttribute="width" constant="300" id="rrW-68-UZ0"/>
+                                </constraints>
+                                <state key="normal" title="Conditional Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="conditionalBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="0uI-Bc-7zV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-3d-vI4">
+                                <rect key="frame" x="150" y="158" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="JQG-KI-qNw"/>
+                                    <constraint firstAttribute="width" constant="300" id="WUM-Id-TGy"/>
+                                </constraints>
+                                <state key="normal" title="Ignored Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="ignoredBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="Qs2-0Y-Png"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTN-5c-WZs">
+                                <rect key="frame" x="123" y="265" width="354" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="354" id="ocX-lr-k6H"/>
+                                    <constraint firstAttribute="height" constant="30" id="xMF-PR-OSK"/>
+                                </constraints>
+                                <state key="normal" title="Log Message/Values and Continue Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logMessageWithValuesAndContinueBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="pLH-Wp-srd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRZ-Nl-Zic">
+                                <rect key="frame" x="150" y="299" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="lZE-ZO-PT0"/>
+                                    <constraint firstAttribute="height" constant="30" id="rk6-m9-gk6"/>
+                                </constraints>
+                                <state key="normal" title="Multiple Action">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="multipleActionBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="d4R-c9-OVX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVp-Ay-DSu">
+                                <rect key="frame" x="150" y="196" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="KTs-Tp-UcM"/>
+                                    <constraint firstAttribute="height" constant="30" id="e40-wM-yoo"/>
+                                </constraints>
+                                <state key="normal" title="Log Message and Continue Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logMessageAndContinueBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="bXn-Mc-kqi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SVp-Ay-DSu" firstAttribute="top" secondItem="Ucw-3d-vI4" secondAttribute="bottom" constant="8" id="5Mm-o7-4X0"/>
+                            <constraint firstItem="cDS-Eh-VnY" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="Czx-Tv-bzE"/>
+                            <constraint firstItem="SVp-Ay-DSu" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="I7u-ny-1nU"/>
+                            <constraint firstItem="C2r-ga-Cr3" firstAttribute="top" secondItem="oTb-Mh-nkm" secondAttribute="bottom" constant="56" id="Jfk-6U-PEC"/>
+                            <constraint firstItem="dTN-5c-WZs" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="NSF-5r-VUk"/>
+                            <constraint firstItem="cDS-Eh-VnY" firstAttribute="top" secondItem="vRZ-Nl-Zic" secondAttribute="bottom" constant="8" id="Pi7-9h-30Q"/>
+                            <constraint firstItem="fqt-8J-jpy" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="Pmz-QI-xPN"/>
+                            <constraint firstItem="Ucw-3d-vI4" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="QN1-wp-fnP"/>
+                            <constraint firstItem="dTN-5c-WZs" firstAttribute="top" secondItem="fqt-8J-jpy" secondAttribute="bottom" constant="1" id="YBe-u5-cWD"/>
+                            <constraint firstItem="C2r-ga-Cr3" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="bOY-rv-ah7"/>
+                            <constraint firstItem="M89-Pq-SeJ" firstAttribute="top" secondItem="cDS-Eh-VnY" secondAttribute="bottom" constant="8" id="dLy-Qh-WZL"/>
+                            <constraint firstItem="fqt-8J-jpy" firstAttribute="top" secondItem="SVp-Ay-DSu" secondAttribute="bottom" constant="8" id="eWp-of-MvE"/>
+                            <constraint firstItem="M89-Pq-SeJ" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="eo5-qK-bph"/>
+                            <constraint firstItem="vRZ-Nl-Zic" firstAttribute="top" secondItem="dTN-5c-WZs" secondAttribute="bottom" constant="4" id="isz-ge-wgX"/>
+                            <constraint firstItem="vRZ-Nl-Zic" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="nuQ-M0-0Tz"/>
+                            <constraint firstItem="Ucw-3d-vI4" firstAttribute="top" secondItem="C2r-ga-Cr3" secondAttribute="bottom" constant="8" id="s9g-1a-VZb"/>
+                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="802-kb-JmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2294" y="135"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PXv-0g-Af3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XHM-vP-K42" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vGi-Ks-c2p">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u7w-v8-dwe" kind="relationship" relationship="rootViewController" id="lUh-YW-nl8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4q-nM-Nbb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="740" y="135"/>
         </scene>
     </scenes>
 </document>

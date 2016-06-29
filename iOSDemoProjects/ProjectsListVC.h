@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ProjectsListVC.h
 //  iOSDemoProjects
 //
 //  Created by Deepak on 29/06/16.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface ProjectsListVC : UITableViewController
 
 @end
-
