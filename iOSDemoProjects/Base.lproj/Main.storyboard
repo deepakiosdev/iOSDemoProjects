@@ -93,6 +93,19 @@
                                     <action selector="exceptionBreakpointAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="De7-qt-IVy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-nY-foE">
+                                <rect key="frame" x="150" y="409" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ref-gc-sxm"/>
+                                    <constraint firstAttribute="width" constant="300" id="fN7-Lq-oma"/>
+                                </constraints>
+                                <state key="normal" title="BackTrace Breakpoint">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backTraceAction:" destination="UIg-fw-fVz" eventType="touchUpInside" id="ZEf-gw-ghR"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqt-8J-jpy">
                                 <rect key="frame" x="150" y="234" width="300" height="30"/>
                                 <constraints>
@@ -174,6 +187,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XPC-nY-foE" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="1Zx-Co-KUf"/>
                             <constraint firstItem="SVp-Ay-DSu" firstAttribute="top" secondItem="Ucw-3d-vI4" secondAttribute="bottom" constant="8" id="5Mm-o7-4X0"/>
                             <constraint firstItem="cDS-Eh-VnY" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="Czx-Tv-bzE"/>
                             <constraint firstItem="SVp-Ay-DSu" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="I7u-ny-1nU"/>
@@ -184,6 +198,7 @@
                             <constraint firstItem="Ucw-3d-vI4" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="QN1-wp-fnP"/>
                             <constraint firstItem="dTN-5c-WZs" firstAttribute="top" secondItem="fqt-8J-jpy" secondAttribute="bottom" constant="1" id="YBe-u5-cWD"/>
                             <constraint firstItem="C2r-ga-Cr3" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="bOY-rv-ah7"/>
+                            <constraint firstItem="XPC-nY-foE" firstAttribute="top" secondItem="M89-Pq-SeJ" secondAttribute="bottom" constant="4" id="bWE-L2-4WT"/>
                             <constraint firstItem="M89-Pq-SeJ" firstAttribute="top" secondItem="cDS-Eh-VnY" secondAttribute="bottom" constant="8" id="dLy-Qh-WZL"/>
                             <constraint firstItem="fqt-8J-jpy" firstAttribute="top" secondItem="SVp-Ay-DSu" secondAttribute="bottom" constant="8" id="eWp-of-MvE"/>
                             <constraint firstItem="M89-Pq-SeJ" firstAttribute="centerX" secondItem="Ibc-gj-Ddd" secondAttribute="centerX" id="eo5-qK-bph"/>

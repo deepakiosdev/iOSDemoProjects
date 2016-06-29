@@ -16,14 +16,25 @@
 #import "BreakPointsVC.h"
 
 @interface BreakPointsVC ()
+{
+    int clickCount;
+
+}
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSMutableArray *namesArray;
 
 @end
 
 @implementation BreakPointsVC
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.firstName  = @"Deepak";
+    clickCount = 100;
+    self.namesArray = [[NSMutableArray alloc] initWithObjects:@"Damodar", @"Maria", @"Raj", @"Nishant", @"Vinoth", @"Sharad", nil];
+#warning Add watchpoint for firstName and clickCount
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -33,10 +44,12 @@
 
 - (IBAction)conditionalBreakpointAction:(id)sender
 {
+    ++clickCount;
+    [self.namesArray addObject:@"Ujjwal"];
+    self.firstName  = @"Zoeb";
     NSLog(@"Demo: conditional Breakpoint (%s)" , __PRETTY_FUNCTION__ );
   
-    NSArray *names = @[@"Damodar", @"Maria", @"Raj", @"Nishant", @"Vinoth", @"Sharad"];
-    for (NSString *name in names) {
+    for (NSString *name in self.namesArray) {
         // <- This conditional breakpoint will only work if name = @"Raj"
         NSLog(@"name:%@",name);
     }
@@ -44,6 +57,9 @@
 
 - (IBAction)ignoredBreakpointAction:(id)sender
 {
+    self.firstName  = @"Naveen";
+    [self.namesArray addObject:@"Hemanth"];
+    ++clickCount;
     NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
     int i = 0;
     while (++i <= 6) {
@@ -54,6 +70,7 @@
 
 - (IBAction)logMessageAndContinueBreakpointAction:(id)sender
 {
+    ++clickCount;
     NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
     // A new message will be in you debug log
 }
@@ -61,26 +78,35 @@
 
 - (IBAction)soundBreakpointAction:(id)sender
 {
+    ++clickCount;
     NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
 }
 
 - (IBAction)logMessageWithValuesAndContinueBreakpointAction:(id)sender
 {
+    ++clickCount;
     NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
     // A new message will be in you debug log
 }
 
 - (IBAction)multipleActionBreakpointAction:(id)sender
 {
+    ++clickCount;
     NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
     // A new message will be in you debug log
     //Using memory address chnage value run time
     // expr (void)[0x00007f8d3bf63630 setBackgroundColor:[UIColor redColor]]
+    // expr (void)[sender setBackgroundColor:[UIColor greenColor]]
+    // OR   po (void)[sender setBackgroundColor:[UIColor redColor]]
+    // expr (void)[sender setTitle:@"Deepak" forState:0] // Set Title
+    // OR expr (void)[0x00007f8d3bf63630 setTitle:@"Deepak" forState:0]
+    // Note you can interchange po and expr. you can also interchange object |sender| and memory address |0x00007f8d3bf63630|
 }
 
 
 - (IBAction)exceptionBreakpointAction:(id)sender
 {
+    ++clickCount;
     @try {
         // The Breakpoint Navigation has an Exception Breakpoint which will stop here.
         @throw [NSException exceptionWithName:@"Example" reason:@"Testing Breakpoints" userInfo:nil];
@@ -91,6 +117,7 @@
 
 - (IBAction)symbolicBreakpointAction:(id)sender
 {
+    ++clickCount;
     // The symbolic breakpoint will stop at the beginning of this method
     // There's also a symbolic breakpoint for
     NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
@@ -116,5 +143,17 @@
     
 }
 
+- (IBAction)backTraceAction:(id)sender {
+    ++clickCount;
+    NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
+    [self testBreakPoints];
+
+}
+
+
+-(void)testBreakPoints {
+    NSLog(@"Demo: (%s)" , __PRETTY_FUNCTION__ );
+    
+}
 
 @end
