@@ -14,6 +14,4 @@
 @property (assign,nonatomic ) IBInspectable CGFloat borderWidth;
 @property (assign,nonatomic ) IBInspectable UIColor  *borderColor;
 
-@property (strong,nonatomic ) NSString  *myName;
-
 @end

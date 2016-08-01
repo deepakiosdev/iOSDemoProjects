@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000991271D4FA9A500373E39 /* CrashTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 000991121D4FA9A500373E39 /* CrashTestVC.m */; };
+		000991281D4FA9A500373E39 /* FirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 000991141D4FA9A500373E39 /* FirstVC.m */; };
+		000991291D4FA9A500373E39 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 000991161D4FA9A500373E39 /* SecondVC.m */; };
+		0009912A1D4FA9A500373E39 /* IBInspectable&IBDesignable.m in Sources */ = {isa = PBXBuildFile; fileRef = 000991181D4FA9A500373E39 /* IBInspectable&IBDesignable.m */; };
+		0009912B1D4FA9A500373E39 /* MyCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0009911A1D4FA9A500373E39 /* MyCustomView.m */; };
+		0009912E1D4FA9A500373E39 /* TestingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 000991241D4FA9A500373E39 /* TestingVC.m */; };
+		0009912F1D4FA9A500373E39 /* UIView+IB.m in Sources */ = {isa = PBXBuildFile; fileRef = 000991261D4FA9A500373E39 /* UIView+IB.m */; };
 		0045F61F1D2433150070ECCC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F61E1D2433150070ECCC /* main.m */; };
 		0045F6221D2433150070ECCC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045F6211D2433150070ECCC /* AppDelegate.m */; };
 		0045F6281D2433150070ECCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0045F6261D2433150070ECCC /* Main.storyboard */; };
@@ -17,6 +24,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		000991111D4FA9A500373E39 /* CrashTestVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrashTestVC.h; sourceTree = "<group>"; };
+		000991121D4FA9A500373E39 /* CrashTestVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrashTestVC.m; sourceTree = "<group>"; };
+		000991131D4FA9A500373E39 /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVC.h; sourceTree = "<group>"; };
+		000991141D4FA9A500373E39 /* FirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVC.m; sourceTree = "<group>"; };
+		000991151D4FA9A500373E39 /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
+		000991161D4FA9A500373E39 /* SecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondVC.m; sourceTree = "<group>"; };
+		000991171D4FA9A500373E39 /* IBInspectable&IBDesignable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IBInspectable&IBDesignable.h"; sourceTree = "<group>"; };
+		000991181D4FA9A500373E39 /* IBInspectable&IBDesignable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IBInspectable&IBDesignable.m"; sourceTree = "<group>"; };
+		000991191D4FA9A500373E39 /* MyCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCustomView.h; sourceTree = "<group>"; };
+		0009911A1D4FA9A500373E39 /* MyCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCustomView.m; sourceTree = "<group>"; };
+		000991231D4FA9A500373E39 /* TestingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingVC.h; sourceTree = "<group>"; };
+		000991241D4FA9A500373E39 /* TestingVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingVC.m; sourceTree = "<group>"; };
+		000991251D4FA9A500373E39 /* UIView+IB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+IB.h"; sourceTree = "<group>"; };
+		000991261D4FA9A500373E39 /* UIView+IB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+IB.m"; sourceTree = "<group>"; };
 		0045F61A1D2433150070ECCC /* iOSDemoProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDemoProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0045F61E1D2433150070ECCC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0045F6201D2433150070ECCC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,6 +63,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000991101D4FA9A500373E39 /* Crashing */ = {
+			isa = PBXGroup;
+			children = (
+				000991111D4FA9A500373E39 /* CrashTestVC.h */,
+				000991121D4FA9A500373E39 /* CrashTestVC.m */,
+				000991131D4FA9A500373E39 /* FirstVC.h */,
+				000991141D4FA9A500373E39 /* FirstVC.m */,
+				000991151D4FA9A500373E39 /* SecondVC.h */,
+				000991161D4FA9A500373E39 /* SecondVC.m */,
+			);
+			path = Crashing;
+			sourceTree = "<group>";
+		};
 		0045F6111D2433150070ECCC = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +95,15 @@
 		0045F61C1D2433150070ECCC /* iOSDemoProjects */ = {
 			isa = PBXGroup;
 			children = (
+				000991101D4FA9A500373E39 /* Crashing */,
+				000991171D4FA9A500373E39 /* IBInspectable&IBDesignable.h */,
+				000991181D4FA9A500373E39 /* IBInspectable&IBDesignable.m */,
+				000991191D4FA9A500373E39 /* MyCustomView.h */,
+				0009911A1D4FA9A500373E39 /* MyCustomView.m */,
+				000991231D4FA9A500373E39 /* TestingVC.h */,
+				000991241D4FA9A500373E39 /* TestingVC.m */,
+				000991251D4FA9A500373E39 /* UIView+IB.h */,
+				000991261D4FA9A500373E39 /* UIView+IB.m */,
 				0045F6201D2433150070ECCC /* AppDelegate.h */,
 				0045F6211D2433150070ECCC /* AppDelegate.m */,
 				0045F6261D2433150070ECCC /* Main.storyboard */,
@@ -154,8 +197,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000991271D4FA9A500373E39 /* CrashTestVC.m in Sources */,
+				000991281D4FA9A500373E39 /* FirstVC.m in Sources */,
 				0045F6221D2433150070ECCC /* AppDelegate.m in Sources */,
+				0009912A1D4FA9A500373E39 /* IBInspectable&IBDesignable.m in Sources */,
 				0045F6391D2437A30070ECCC /* BreakPointsVC.m in Sources */,
+				0009912E1D4FA9A500373E39 /* TestingVC.m in Sources */,
+				000991291D4FA9A500373E39 /* SecondVC.m in Sources */,
+				0009912B1D4FA9A500373E39 /* MyCustomView.m in Sources */,
+				0009912F1D4FA9A500373E39 /* UIView+IB.m in Sources */,
 				0045F6361D24339E0070ECCC /* ProjectsListVC.m in Sources */,
 				0045F61F1D2433150070ECCC /* main.m in Sources */,
 			);
@@ -306,6 +356,7 @@
 				0045F6331D2433150070ECCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -23,7 +23,7 @@
 
 - (void)prepareForInterfaceBuilder
 {
-    UIColor *color = [UIColor blackColor];
+    UIColor *color = [UIColor yellowColor];
     _myView.backgroundColor = [UIColor purpleColor];
     _myView.borderColor = color;
     _myView.borderWidth = 60;

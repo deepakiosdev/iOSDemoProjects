@@ -17,7 +17,7 @@
             startingLineNumber = "53"
             endingLineNumber = "53"
             landmarkName = "-conditionalBreakpointAction:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -33,7 +33,7 @@
             startingLineNumber = "66"
             endingLineNumber = "66"
             landmarkName = "-ignoredBreakpointAction:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -49,7 +49,7 @@
             startingLineNumber = "75"
             endingLineNumber = "75"
             landmarkName = "-logMessageAndContinueBreakpointAction:"
-            landmarkType = "5">
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
@@ -74,7 +74,7 @@
             startingLineNumber = "90"
             endingLineNumber = "90"
             landmarkName = "-logMessageWithValuesAndContinueBreakpointAction:"
-            landmarkType = "5">
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Log">
@@ -105,7 +105,7 @@
             startingLineNumber = "97"
             endingLineNumber = "97"
             landmarkName = "-multipleActionBreakpointAction:"
-            landmarkType = "5">
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
@@ -143,7 +143,7 @@
             startingLineNumber = "82"
             endingLineNumber = "82"
             landmarkName = "-soundBreakpointAction:"
-            landmarkType = "5">
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.Sound">
@@ -259,7 +259,7 @@
             startingLineNumber = "156"
             endingLineNumber = "156"
             landmarkName = "-testBreakPoints"
-            landmarkType = "5">
+            landmarkType = "7">
             <Actions>
                <BreakpointActionProxy
                   ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
@@ -330,7 +330,21 @@
             startingLineNumber = "36"
             endingLineNumber = "36"
             landmarkName = "-viewDidLoad"
-            landmarkType = "5">
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iOSDemoProjects/Swift/mySwiftPrograms/mySwiftPrograms/main.swift"
+            timestampString = "491760167.52743"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "363"
+            endingLineNumber = "363">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
