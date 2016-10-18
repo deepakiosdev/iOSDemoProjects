@@ -131,6 +131,11 @@
                                             <action selector="playPauseAction:" destination="T2x-wN-Hc0" eventType="touchUpInside" id="MyH-7v-vbs"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCQ-H1-TKH">
+                                        <frame key="frameInset" minX="200" minY="10" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsJ-X8-N5t">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="76" id="abR-Ow-Dgw"/>
@@ -166,6 +171,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="airPlayIconView" destination="sCQ-H1-TKH" id="7do-ow-pv6"/>
                         <outlet property="playPauseBtn" destination="U4l-oj-sTM" id="9pk-xL-x3m"/>
                     </connections>
                 </viewController>

@@ -168,8 +168,8 @@
     [[_externalWindow screen] setOverscanCompensation:UIScreenOverscanCompensationScale];
     
     [_playerContainerView setFrame:[_externalWindow bounds]];
-    [_externalWindow addSubview:_playerContainerView];
     
+    [_externalWindow addSubview:_playerContainerView];
     [_playerContainerView updateConstraintsIfNeeded];
     [_playerContainerView setNeedsLayout];
     [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:YES];
@@ -179,7 +179,8 @@
             [_playerContainerSuperView removeConstraint:c];
         }
     }
-    
+    //[self listSubviewsOfView:_playerVC.view];
+
     [_externalWindow makeKeyAndVisible];
 
     
@@ -189,8 +190,14 @@
 {
     UIScreen *externalScreen = [notification object];
     [self configureExternalScreen:externalScreen];
+    //[self goToFullScreen:nil];
+    //[self performSelector:@selector(connectToAppleTV:) withObject:notification afterDelay:10];
 }
 
+- (void)connectToAppleTV:(NSNotification *)notification {
+    UIScreen *externalScreen = [notification object];
+    [self configureExternalScreen:externalScreen];
+}
 -(void)externalScreenDidDisconnect:(NSNotification*)notification
 {
     NSLog(@"externalScreenDidDisconnect....");
@@ -214,6 +221,31 @@
 
 -(void)exteralScreenModeDidChange:(NSNotification*)notification
 {
+}
+
+- (void)listSubviewsOfView:(UIView *)view {
+    
+    // Get the subviews of the view
+    NSArray *subviews = [view subviews];
+    
+    // Return if there are no subviews
+    if ([subviews count] == 0) return; // COUNT CHECK LINE
+    
+    for (UIView *subview in subviews) {
+        
+        //[subview isKindOfClass:[UIView class]] //_AVPlayerLayerView//AVPlayerLayer
+     
+        NSLog(@"++++++++view:%@",subview);
+        
+        if ([subview.layer isKindOfClass:[AVPlayerLayer class]]) {
+            NSLog(@"I am right...");
+        } else if ([subview isKindOfClass:[UILabel class]] || [subview isKindOfClass:[UIImageView class]] || [subview isKindOfClass:[UIButton class]]) {
+                subview.hidden = YES;
+        }
+        
+        // List the subviews of subview
+        [self listSubviewsOfView:subview];
+    }
 }
 
 @end

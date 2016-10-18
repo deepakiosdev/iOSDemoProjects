@@ -11,11 +11,13 @@
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AVPlayerViewController+FullScreen.h"
+#import  <MediaPlayer/MediaPlayer.h>
 
 @interface PlayerWithCustomControlVC ()
 
 @property (weak, nonatomic) IBOutlet UIButton *playPauseBtn;
 @property (nonatomic, strong) AVPlayerViewController *playerVC;
+@property (weak, nonatomic) IBOutlet UIView *airPlayIconView;
 
 @end
 
@@ -24,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configureAirPlayView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,11 +54,12 @@
     _playerVC           = [[AVPlayerViewController alloc] init];
     _playerVC           = (AVPlayerViewController *)segue.destinationViewController;
     NSURL *videoUrl     = [NSURL URLWithString:@"https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"];
+   // NSURL *videoUrl     = [NSURL URLWithString:@"http://playertest.longtailvideo.com/adaptive/oceans_aes/oceans_aes.m3u8"];
     _playerVC.player    = [AVPlayer playerWithURL:videoUrl];
     
     _playerVC.showsPlaybackControls                                     = NO;
-    _playerVC.player.allowsExternalPlayback                             = YES;
-    _playerVC.player.usesExternalPlaybackWhileExternalScreenIsActive    = YES;
+    _playerVC.player.allowsExternalPlayback                             = NO;
+    _playerVC.player.usesExternalPlaybackWhileExternalScreenIsActive    = NO;
     
     [self performSelector:@selector(showWatermark) withObject:nil afterDelay:3.0];
 }
@@ -71,5 +75,11 @@
     }
 }
 
+- (void)configureAirPlayView {
+    MPVolumeView *volumeView = [[MPVolumeView alloc] init] ;
+    [volumeView setShowsVolumeSlider:NO];
+    [volumeView sizeToFit];
+    [_airPlayIconView addSubview:volumeView];
+}
 
 @end
