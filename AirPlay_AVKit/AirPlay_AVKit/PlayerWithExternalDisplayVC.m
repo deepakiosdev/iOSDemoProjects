@@ -18,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UIView *playerContainerSuperView;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseBtn;
 @property (weak, nonatomic) IBOutlet UILabel *waterMarkLbl;
+@property (nonatomic, strong) IBOutlet UIView *playerView;
+
 
 @property (nonatomic, strong) UIWindow                      *externalWindow;
 @property (nonatomic, strong) UIScreen                      *externalScreen;
@@ -163,41 +165,47 @@
     }
     [_externalWindow setHidden:NO];
     
-    [[_externalWindow layer] setContentsGravity:kCAGravityResizeAspect];
+    [[_externalWindow layer] setContentsGravity:AVLayerVideoGravityResizeAspect];
     [_externalWindow setScreen:self.externalScreen];
     [[_externalWindow screen] setOverscanCompensation:UIScreenOverscanCompensationScale];
+   // [_playerContainerView setFrame:[_externalWindow bounds]];
+   // [_externalWindow addSubview:_playerContainerView];
+    [self getAVplayerLayerFromView:_playerVC.view];
+    UIView *view        = [[UIView alloc] init];
+    _playerView.layer.frame     = [_externalWindow bounds];
+    _playerView.frame           = [_externalWindow bounds];
     
-    [_playerContainerView setFrame:[_externalWindow bounds]];
+    [_playerView.layer setContentsGravity:AVLayerVideoGravityResizeAspectFill];
+    [view.layer addSublayer:_playerView.layer];
+    view.frame  = [_externalWindow bounds];
     
-    [_externalWindow addSubview:_playerContainerView];
-    [_playerContainerView updateConstraintsIfNeeded];
-    [_playerContainerView setNeedsLayout];
-    [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:YES];
-    for(NSLayoutConstraint *c in _playerContainerSuperView.constraints)
-    {
-        if(c.firstItem == _playerContainerView || c.secondItem == _playerContainerView) {
-            [_playerContainerSuperView removeConstraint:c];
-        }
-    }
-    //[self listSubviewsOfView:_playerVC.view];
-
+    UILabel *waterMarkLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 350, 200, 70)];
+    waterMarkLabel.text = @"Test Watermark";
+    [waterMarkLabel sizeToFit];
+    waterMarkLabel.textColor = [UIColor whiteColor];
+    [view addSubview:waterMarkLabel];
+    [view bringSubviewToFront:waterMarkLabel];
+    
+    [_externalWindow addSubview:view];
+    
+//    [_playerContainerView updateConstraintsIfNeeded];
+//    [_playerContainerView setNeedsLayout];
+//    [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:YES];
+//    for(NSLayoutConstraint *c in _playerContainerSuperView.constraints)
+//    {
+//        if(c.firstItem == _playerContainerView || c.secondItem == _playerContainerView) {
+//            [_playerContainerSuperView removeConstraint:c];
+//        }
+//    }
     [_externalWindow makeKeyAndVisible];
-
-    
 }
 
 -(void)externalScreenDidConnect:(NSNotification*)notification
 {
     UIScreen *externalScreen = [notification object];
     [self configureExternalScreen:externalScreen];
-    //[self goToFullScreen:nil];
-    //[self performSelector:@selector(connectToAppleTV:) withObject:notification afterDelay:10];
 }
 
-- (void)connectToAppleTV:(NSNotification *)notification {
-    UIScreen *externalScreen = [notification object];
-    [self configureExternalScreen:externalScreen];
-}
 -(void)externalScreenDidDisconnect:(NSNotification*)notification
 {
     NSLog(@"externalScreenDidDisconnect....");
@@ -223,28 +231,22 @@
 {
 }
 
-- (void)listSubviewsOfView:(UIView *)view {
-    
+- (void)getAVplayerLayerFromView:(UIView *)view {
     // Get the subviews of the view
     NSArray *subviews = [view subviews];
-    
     // Return if there are no subviews
     if ([subviews count] == 0) return; // COUNT CHECK LINE
     
     for (UIView *subview in subviews) {
-        
         //[subview isKindOfClass:[UIView class]] //_AVPlayerLayerView//AVPlayerLayer
-     
         NSLog(@"++++++++view:%@",subview);
-        
-        if ([subview.layer isKindOfClass:[AVPlayerLayer class]]) {
-            NSLog(@"I am right...");
-        } else if ([subview isKindOfClass:[UILabel class]] || [subview isKindOfClass:[UIImageView class]] || [subview isKindOfClass:[UIButton class]]) {
-                subview.hidden = YES;
+        if ([subview.layer isKindOfClass:[AVPlayerLayer class]])
+        {
+            _playerView = subview;
+            return;
         }
-        
         // List the subviews of subview
-        [self listSubviewsOfView:subview];
+        [self getAVplayerLayerFromView:subview];
     }
 }
 
