@@ -18,7 +18,8 @@
 @property (nonatomic, strong) IBOutlet UIView *playerContainerSuperView;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseBtn;
 @property (weak, nonatomic) IBOutlet UILabel *waterMarkLbl;
-@property (nonatomic, strong)  AVPlayerLayer *playerLayer;
+@property (nonatomic, weak)  AVPlayerLayer *playerLayer;
+@property (weak, nonatomic) IBOutlet UIView *playerHolder;
 
 
 @property (nonatomic, strong) UIWindow                      *externalWindow;
@@ -56,6 +57,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    //[self removePlayerLayers];
     [self externalScreenDidDisconnect:nil];
     [super viewWillDisappear: animated];
 }
@@ -67,6 +69,9 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIScreenModeDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
+}
+- (IBAction)backAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -152,6 +157,48 @@
         }
     }
 }
+/*
+-(void)configurePlayerForExternalDisplay {
+    [self getAVplayerLayerFromView:_playerVC.view];
+    
+     UIView *view            = [[UIView alloc] init];
+     _playerLayer.frame      = [_externalWindow bounds];
+     [_playerLayer setContentsGravity:AVLayerVideoGravityResizeAspectFill];
+     [view.layer addSublayer:_playerLayer];
+     view.frame  = [_externalWindow bounds];
+     _waterMarkLbl.hidden = YES;
+     UILabel *waterMarkLabel = [[UILabel alloc] initWithFrame:CGRectMake(500, 150, 200, 70)];
+     waterMarkLabel.text = @"Player Watermark";
+     [waterMarkLabel sizeToFit];
+     waterMarkLabel.textColor = [UIColor whiteColor];
+     [view addSubview:waterMarkLabel];
+     [view bringSubviewToFront:waterMarkLabel];
+     
+     [_externalWindow addSubview:view];
+}
+*/
+-(void)configurePlayerForExternalDisplay
+{
+    NSLog(@"sublayers.count----:%ld",_playerContainerView.layer.sublayers.count);
+    [self getAVplayerLayerFromView:_playerVC.view];
+    _playerLayer.frame  = [_externalWindow bounds];
+    _playerLayer.name   = @"onScreenPlayerLayer";
+    [_playerLayer setContentsGravity:kCAGravityResizeAspect];
+    [_playerLayer removeFromSuperlayer];
+
+    [_playerContainerView.layer insertSublayer:_playerLayer atIndex:0];
+    
+    [self.playerHolder setHidden:YES];
+    [_externalWindow addSubview:_playerContainerView];
+}
+
+
+-(void)removePlayerLayers
+{
+    [_playerLayer removeFromSuperlayer];
+    _playerLayer.sublayers = nil;
+    _playerLayer = nil;
+}
 
 
 -(void)configureExternalScreen:(UIScreen *)externalScreen
@@ -170,26 +217,9 @@
     [[_externalWindow screen] setOverscanCompensation:UIScreenOverscanCompensationScale];
     
     
-    //[_playerContainerView setFrame:[_externalWindow bounds]];
-   // [_externalWindow addSubview:_playerVC.view];
-    
-    [self getAVplayerLayerFromView:_playerVC.view];
-    
-    UIView *view            = [[UIView alloc] init];
-    _playerLayer.frame      = [_externalWindow bounds];
-    [_playerLayer setContentsGravity:AVLayerVideoGravityResizeAspectFill];
-    [view.layer addSublayer:_playerLayer];
-    view.frame  = [_externalWindow bounds];
-    _waterMarkLbl.hidden = YES;
-    UILabel *waterMarkLabel = [[UILabel alloc] initWithFrame:CGRectMake(500, 150, 200, 70)];
-    waterMarkLabel.text = @"Player Watermark";
-    [waterMarkLabel sizeToFit];
-    waterMarkLabel.textColor = [UIColor whiteColor];
-    [view addSubview:waterMarkLabel];
-    [view bringSubviewToFront:waterMarkLabel];
-    
-    [_externalWindow addSubview:view];
-    
+   // [_playerContainerView setFrame:[_externalWindow bounds]];
+    //[_externalWindow addSubview:_playerVC.view];
+    [self configurePlayerForExternalDisplay];
     [_playerContainerView updateConstraintsIfNeeded];
     [_playerContainerView setNeedsLayout];
     [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:YES];
@@ -202,6 +232,7 @@
     [_externalWindow makeKeyAndVisible];
 }
 
+
 -(void)externalScreenDidConnect:(NSNotification*)notification
 {
     UIScreen *externalScreen = [notification object];
@@ -211,7 +242,9 @@
 -(void)externalScreenDidDisconnect:(NSNotification*)notification
 {
     NSLog(@"externalScreenDidDisconnect....");
-    _waterMarkLbl.hidden    = NO;
+   // _waterMarkLbl.hidden    = NO;
+    _playerHolder.hidden = NO;
+    //[self removePlayerLayers];
     [_playerContainerView setFrame:[_playerContainerSuperView bounds]];
     [_playerContainerSuperView addSubview:_playerContainerView];
     

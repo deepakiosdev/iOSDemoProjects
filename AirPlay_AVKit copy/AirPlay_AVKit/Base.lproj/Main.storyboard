@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NVK-7e-T59">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Airplay with Watermark using AVPlayerViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
@@ -15,18 +18,18 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Airplay with Watermark using AVPlayerViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-My-OcO">
-                                <frame key="frameInset" minX="267" minY="60" width="408" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCL-My-OcO">
+                                <rect key="frame" x="267" y="60" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ta2-Oh-V5I">
-                                <frame key="frameInset" minX="302" minY="222" width="338" height="30"/>
+                                <rect key="frame" x="302" y="222" width="338" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="AirPlay With Deafault Control"/>
                                 <connections>
@@ -34,7 +37,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LL-cR-l7Q">
-                                <frame key="frameInset" minX="297" minY="277" width="338" height="30"/>
+                                <rect key="frame" x="297" y="277" width="338" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="AirPlay With Cutom Control"/>
                                 <connections>
@@ -42,20 +45,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgk-g9-0VO">
-                                <frame key="frameInset" minX="292" minY="322" width="338" height="30"/>
+                                <rect key="frame" x="292" y="322" width="338" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="AirPlay With External Screen"/>
                                 <connections>
-                                    <segue destination="cUC-wU-lCH" kind="show" id="tCh-fD-hFv"/>
+                                    <segue destination="Kbq-L8-5yM" kind="show" id="Fyz-Gh-E4e"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Airplay with Watermark using AVPlayerViewController" id="uxp-eZ-AI6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="76"/>
+            <point key="canvasLocation" x="1048.8" y="75.112443778110944"/>
         </scene>
         <!--Player With Defatult ControlVC-->
         <scene sceneID="EJ3-83-17S">
@@ -66,17 +70,18 @@
                         <viewControllerLayoutGuide type="bottom" id="uWR-sJ-BEL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="24I-aV-K8K">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cutom Watermark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii6-p8-t8q">
-                                <frame key="frameInset" minX="600" minY="200" width="200" height="70"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cutom Watermark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ii6-p8-t8q">
+                                <rect key="frame" x="600" y="200" width="200" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjs-68-w2I">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <segue destination="ekJ-rt-pa2" kind="embed" identifier="PlayerWithDefatultControlVC" id="iwW-Qw-jcm"/>
                                 </connections>
@@ -116,17 +121,20 @@
                         <viewControllerLayoutGuide type="bottom" id="GFy-k4-No8"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7Eb-fg-UcG">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npF-7w-vyS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="608"/>
                                 <connections>
                                     <segue destination="GpN-Wd-rqs" kind="embed" identifier="" id="FJg-6D-qMH"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dah-C8-aeE">
+                                <rect key="frame" x="0.0" y="608" width="375" height="59"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U4l-oj-sTM">
+                                        <rect key="frame" x="25" y="14" width="88" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="88" id="a9g-b9-Rbf"/>
                                             <constraint firstAttribute="height" constant="30" id="hcz-Fl-DB4"/>
@@ -140,11 +148,12 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sCQ-H1-TKH">
-                                        <frame key="frameInset" minX="200" minY="10" width="40" height="40"/>
+                                        <rect key="frame" x="200" y="10" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AsJ-X8-N5t">
+                                        <rect key="frame" x="258" y="16" width="76" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="76" id="abR-Ow-Dgw"/>
                                             <constraint firstAttribute="height" constant="30" id="pm8-c9-QeC"/>
@@ -185,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fbt-hg-nRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980.85937499999989" y="-289.0190336749634"/>
+            <point key="canvasLocation" x="1919.2" y="-289.20539730134936"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="MtJ-c7-bj1">
@@ -193,9 +202,9 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="GpN-Wd-rqs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adv-Nf-dds" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1729" y="-284"/>
+            <point key="canvasLocation" x="2668" y="-284.25787106446779"/>
         </scene>
-        <!--Player With External DisplayVC-->
+        <!--Player-->
         <scene sceneID="Yaa-vd-5WP">
             <objects>
                 <viewController id="cUC-wU-lCH" customClass="PlayerWithExternalDisplayVC" sceneMemberID="viewController">
@@ -204,19 +213,23 @@
                         <viewControllerLayoutGuide type="bottom" id="ESm-Cu-Olh"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ihh-Zg-44I">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="91Z-k9-Qz4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfn-sO-8xX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9UU-Di-g21">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="564"/>
                                                 <connections>
                                                     <segue destination="Ynl-jm-VCb" kind="embed" id="snq-vw-XTq"/>
                                                 </connections>
                                             </containerView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player Watermark" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAC-GL-vSK">
+                                                <rect key="frame" x="121" y="170" width="200" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="K3y-eU-BM7"/>
@@ -247,8 +260,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-bl-QBi">
+                                <rect key="frame" x="0.0" y="564" width="375" height="59"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHB-ji-FZB">
+                                        <rect key="frame" x="25" y="14" width="88" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="88" id="Ebi-6z-hU2"/>
                                             <constraint firstAttribute="height" constant="30" id="GDB-hH-ZlJ"/>
@@ -262,6 +277,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hef-9d-OgU">
+                                        <rect key="frame" x="258" y="16" width="76" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="hla-B0-i4Y"/>
                                             <constraint firstAttribute="width" constant="76" id="uT2-ls-O6l"/>
@@ -295,16 +311,26 @@
                             <constraint firstItem="ea4-bl-QBi" firstAttribute="top" secondItem="91Z-k9-Qz4" secondAttribute="bottom" id="i5o-rF-v3R"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Player" id="hCt-et-X0V">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="FLa-xt-NE4">
+                            <connections>
+                                <action selector="backAction:" destination="cUC-wU-lCH" id="M0g-EP-Xe5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="playPauseBtn" destination="cHB-ji-FZB" id="HdK-M6-wCC"/>
                         <outlet property="playerContainerSuperView" destination="91Z-k9-Qz4" id="HND-qb-3cf"/>
                         <outlet property="playerContainerView" destination="lfn-sO-8xX" id="vC3-E8-yDc"/>
+                        <outlet property="playerHolder" destination="9UU-Di-g21" id="VhT-OY-2hS"/>
                         <outlet property="waterMarkLbl" destination="BAC-GL-vSK" id="Drv-VG-McS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rI1-cO-bI5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="989" y="406"/>
+            <point key="canvasLocation" x="2866.4000000000001" y="405.24737631184411"/>
         </scene>
         <!--AV Player View Controller-->
         <scene sceneID="lJH-Uf-8VS">
@@ -312,7 +338,43 @@
                 <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="Ynl-jm-VCb" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zH9-kt-YbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1737" y="411"/>
+            <point key="canvasLocation" x="3615.1999999999998" y="410.19490254872568"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Oga-xv-4Lw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kbq-L8-5yM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OLm-FD-1cd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cUC-wU-lCH" kind="relationship" relationship="rootViewController" id="pNw-ud-ksr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZk-1k-1UO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1927.2" y="405.24737631184411"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fjZ-9f-3Wc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="NVK-7e-T59" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="O2N-o7-J6F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="U2a-Kd-zRk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QZd-Yq-rsy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109.59999999999999" y="75.112443778110944"/>
         </scene>
     </scenes>
 </document>
