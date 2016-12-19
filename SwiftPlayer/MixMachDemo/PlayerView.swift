@@ -242,6 +242,8 @@ class PlayerView: UIView, AVAssetResourceLoaderDelegate {
         {
             if subView.layer is AVPlayerLayer {
                 playerLayer = subView.layer as? AVPlayerLayer
+               playerLayer?.zPosition = 1000
+
             }
             if playerLayer == nil {
                 playerLayer = getAVPlayerLayerFrom(playerView: subView)
@@ -251,6 +253,39 @@ class PlayerView: UIView, AVAssetResourceLoaderDelegate {
         }
         return playerLayer
     }
+    
+    public func movePlayerOnTopAndUpdate(frame: CGRect)
+    {
+       bringPlayerLayerOnTop(playerView: avPlayer.view, frame: frame)
+    }
+    
+    private func bringPlayerLayerOnTop(playerView: UIView?, frame: CGRect)  {
+        
+        var playerLayer: AVPlayerLayer? = nil
+        // Return if there are no subviews
+        guard let subviews = playerView?.subviews else {
+            return
+        }
+        
+        // Get the subviews of the view
+        for subView in subviews
+        {
+            if subView.layer is AVPlayerLayer {
+                playerLayer = subView.layer as? AVPlayerLayer
+                playerLayer?.zPosition = 1000
+                playerLayer?.frame  = frame
+                playerLayer?.contentsGravity = kCAGravityResizeAspect
+            }
+            if playerLayer == nil {
+                bringPlayerLayerOnTop(playerView: subView, frame: frame)
+            } else {
+                break
+                //return playerLayer
+            }
+        }
+       // return playerLayer
+    }
+
     
     private func getAssetFrameRate() -> Float {
         frameRate = 0.0

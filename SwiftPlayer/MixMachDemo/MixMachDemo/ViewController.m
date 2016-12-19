@@ -19,24 +19,25 @@
 
 @interface ViewController () <PlayerViewDelegate, AudioTrackDelegate, BitrateListDelegate>
 
-@property (weak, nonatomic) IBOutlet UISlider *seekBar;
-@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
-@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
-@property (weak, nonatomic) IBOutlet UILabel *currentTime;
-@property (weak, nonatomic) IBOutlet UILabel *duration;
+@property (nonatomic, weak) IBOutlet UISlider *seekBar;
+@property (nonatomic, weak) IBOutlet UIToolbar *toolBar;
+@property (nonatomic, weak) IBOutlet UIButton *playPauseButton;
+@property (nonatomic, weak) IBOutlet UILabel *currentTime;
+@property (nonatomic, weak) IBOutlet UILabel *duration;
 
-@property (nonatomic, strong) IBOutlet UIView *playerContainerView;
-@property (nonatomic, strong) IBOutlet UIView *playerContainerSuperView;
+@property (nonatomic, weak) IBOutlet UIView *playerContainerView;
+@property (nonatomic, weak) IBOutlet UIView *playerContainerSuperView;
 @property (nonatomic, weak) IBOutlet PlayerView *player;
-@property (weak, nonatomic) IBOutlet UIView *controlsView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
-@property (weak, nonatomic) IBOutlet UILabel *waterMarkLbl;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UIView *controlsView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingIndicator;
+@property (nonatomic, weak) IBOutlet UILabel *waterMarkLbl;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) UIWindow      *externalWindow;
 @property (nonatomic, strong) UIScreen      *externalScreen;
-@property (nonatomic, strong) AVPlayerLayer *playerLayer;
+@property (nonatomic, weak) AVPlayerLayer *playerLayer;
 @property (nonatomic, strong) NSArray *audioTracks;
 @property (nonatomic, strong) NSArray *bitRates;
+@property (nonatomic, strong) UIView *externalPlayerView;
 
 
 @end
@@ -45,7 +46,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+  //  [self.navigationItem setHidesBackButton:YES animated:YES];
+  //  [[self navigationController] setNavigationBarHidden:YES animated:YES];
     _seekBar.value              = 0.0;
     _playPauseButton.enabled    = NO;
     _currentTime.text           = @"00:00:00:00";
@@ -80,23 +82,16 @@
     if (_player.isPlayerInitialized) {
         [self setupExternalScreen];
     }
-    
-   /* _playerVC = [PlayerView new];
-    NSString *url = @"http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8";
-    AVPlayerView *playerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PlayerView"];
-    _playerVC.mediaPlayer = playerVC;
-    [_playerVC initWithUrlWithUrl:url];
-    // show the view controller
-    [self addChildViewController:_playerVC.mediaPlayer];
-    [self.view addSubview:_playerVC.mediaPlayer.view];
-    _playerVC.mediaPlayer.view.frame = _containerView.frame;*/
 }
-
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [self externalScreenDidDisconnect:nil];
-    [_player cleanup];
+//    if(_externalWindow) {
+//        [self externalScreenDidDisconnect:nil];
+//        [self removePlayerLayers];
+//    }
+//    [_player cleanup];
+//    _player = nil;
     [super viewWillDisappear:animated];
 }
 
@@ -137,13 +132,39 @@
     }
 }
 
-
+- (void)dealloc
+{
+    NSLog(@"Dealloc called....");
+   /* _externalWindow = nil;
+    _externalScreen = nil;
+    _player         = nil;
+    _playerLayer    = nil;
+    _playerContainerView = nil;
+    _playerContainerSuperView = nil;*/
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)BackButtonAction:(id)sender {
+    NSLog(@"back button pressed....");
+    return;
+    ((UIButton *)sender).userInteractionEnabled = NO;
+  //  [_player cleanup];
+    //_player = nil;
+    if(_externalWindow) {
+        [self externalScreenDidDisconnect:nil];
+        //[self removePlayerLayers];
+    }
+    //[self performSelector:@selector(popView) withObject:nil afterDelay:8];
+}
+
+-(void)popView {
+    NSLog(@"popView....");
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 //****************************************************
 // MARK: - Private Methods
@@ -196,7 +217,7 @@
 
     [_playerContainerView updateConstraintsIfNeeded];
     [_playerContainerView setNeedsLayout];
-    [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     for(NSLayoutConstraint *c in _playerContainerSuperView.constraints)
     {
         if(c.firstItem == _playerContainerView || c.secondItem == _playerContainerView) {
@@ -212,15 +233,17 @@
     NSLog(@"externalScreenDidDisconnect....");
     _player.hidden = NO;
     [_playerContainerView setFrame:[_playerContainerSuperView bounds]];
+    _playerLayer.frame = _playerContainerView.bounds;
     [_playerContainerSuperView addSubview:_playerContainerView];
-    
+
     [_playerContainerView updateConstraintsIfNeeded];
     [_playerContainerView setNeedsLayout];
-    [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:YES];
+    [_playerContainerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     if(_externalWindow)
     {
         self.externalScreen = nil;
+        [self removeSubviews:_externalWindow];
         [_externalWindow setHidden:YES];
         [_externalWindow resignKeyWindow];
     }
@@ -232,52 +255,57 @@
 {
 }
 
-- (void)getAVplayerLayerFromView:(UIView *)view {
-    // Get the subviews of the view
-    NSArray *subviews = [view subviews];
-    // Return if there are no subviews
-    if ([subviews count] == 0) return;
-    
-    for (UIView *subview in subviews) {
-        NSLog(@"++++++++view:%@",subview);
-        if ([subview.layer isKindOfClass:[AVPlayerLayer class]])
-        {
-            _playerLayer = (AVPlayerLayer *)subview.layer;
-            return;
-        }
-        [self getAVplayerLayerFromView:subview];
-    }
-}
-
 -(void)configurePlayerForExternalDisplay {
     NSLog(@"sublayers.count----:%ld",_playerContainerView.layer.sublayers.count);
 
     _playerLayer        = _player.playerLayer;
     _playerLayer.frame  = [_externalWindow bounds];
     [_playerLayer setContentsGravity:kCAGravityResizeAspect];
-    [_playerContainerView.layer insertSublayer:_playerLayer atIndex:0];
-    _player.hidden = YES;
+   // _externalPlayerView  = [[UIView alloc] initWithFrame:_externalWindow.frame];
+  // [_externalPlayerView.layer addSublayer:_playerLayer];
+   // [_playerContainerView.layer addSublayer:_externalPlayerView.layer];
+    //[_playerContainerView addSubview:_externalPlayerView];
+
+    [_playerLayer removeFromSuperlayer];
+   [_playerContainerView.layer insertSublayer:_playerLayer atIndex:0];
+
+   _player.hidden = YES;
     [_externalWindow addSubview:_playerContainerView];
-    
+   // [self performSelector:@selector(movePlayerOnTop) withObject:nil afterDelay:3];
 }
 
-/*
--(void)configurePlayerForExternalDisplay
+-(void)removePlayerLayers
 {
-    NSLog(@"sublayers.count----:%ld",_playerContainerView.layer.sublayers.count);
-    [self getAVplayerLayerFromView:_playerVC.view];
-    _playerLayer.frame  = [_externalWindow bounds];
-    _playerLayer.name   = @"onScreenPlayerLayer";
-    [_playerLayer setContentsGravity:kCAGravityResizeAspect];
+    for(CALayer __strong *layer in _playerLayer.sublayers) {
+        NSLog(@"layer----:%@",layer);
+        [layer removeFromSuperlayer];
+        layer = nil;
+    }
+    
     [_playerLayer removeFromSuperlayer];
-    
-    [_playerContainerView.layer insertSublayer:_playerLayer atIndex:0];
-    
-    [self.playerHolder setHidden:YES];
-    [_externalWindow addSubview:_playerContainerView];
-}*/
+    _playerLayer.sublayers = nil;
+    _playerLayer = nil;
+}
 
+-(void)removeSubviews:(UIView *)view {
+    // Get the subviews of the view
+    NSArray *subviews = [view subviews];
+    // Return if there are no subviews
+    if ([subviews count] == 0) return;
+    
+    for (UIView __strong *subview in subviews) {
+        NSLog(@"++++++++view:%@",subview);
+        [subview removeFromSuperview];
+        subview = nil;
+    }
+}
 
+- (void)movePlayerOnTop {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_player movePlayerOnTopAndUpdateWithFrame:_externalWindow.frame];
+    });
+
+}
 //****************************************************
 // MARK: - PlayerViewDelegate Methods
 //****************************************************
